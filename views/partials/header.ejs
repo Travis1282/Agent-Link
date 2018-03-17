@@ -1,0 +1,19 @@
+  <body>
+    <header>
+        <nav id="menu" class=".backgroundImage">
+        <h3>
+            <a href="/home">Property Search</a>
+            <% if (signedIn) { %>
+                <a href="/user/profile">Pending Show Requests</a></br>
+                <a href="/user/logout">Logout</a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()"></a>
+            <% } %>
+
+        </h3>
+        </nav>
+      </header>
+        <main id="panel">
+        <button class="toggle-button">☰</button>
+
+
+ 

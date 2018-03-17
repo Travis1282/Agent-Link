@@ -1,0 +1,36 @@
+<html>
+
+	<head>
+		<title>Search Page</title>
+		<%include ./partials/head.ejs %>
+	</head>
+		<!-- contains body tag -->
+		<%include ./partials/header.ejs %>
+<body>
+	<div class="houseContainer">
+		
+		<img class="home-pic" style="background-image:url(<%=home.img%>)">
+		<div class="home-details">
+		<h1><%=home.address%> <%=home.address2%></h2>
+		<h3><%=home.neighborhood%>, <%=home.bedrooms%> Bedroom, <%=home.bathrooms%> bathroom, <%=home.sqft%> sqft</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> <br>
+		<% if (signedIn) { %>
+			<h1>Request a showing</h1>
+			<form action="/home/<%=home.id%>" method="POST">
+				<input class="invisible" type="text" name="address" value="<%=home.address%>">
+				<h3>Choose a date</h3><input id="date" type="date" name="date"><br>
+				<button>Send Request</button>
+			</form>
+		<% } else { %>
+			<a href="/user/login">Login</a> or <a href="/user/register">Register</a> to request a showing of this property
+		<% } %>
+	</div>
+	</div>
+</body>
+	<%include ./partials/footer.ejs %>
+</html>

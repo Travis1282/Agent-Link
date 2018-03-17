@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>User Profile</title>
+	<%include ./partials/head.ejs %>
+</head>
+	<%include ./partials/header.ejs %>
+<body>
+	<div class="expandableShowings">
+	<!-- list the users requests -->
+		<ul class="showingsList">
+			<% for (let i = 0; i < requests.length; i++) { %>
+				<div class="user-requests">
+					<li>
+						<h2> 1234 west dummy data  chicago Il 60639<%= requests[i].propertyAddress %></h2>
+						<h2>12/12/19<%= requests[i].requestedDate %></h2>
+						<% if (requests[i].accepted) { %>
+							<h2>CONFIRMED</h2>
+						<% } else { %>
+							<h2>PENDING</h2>
+						<% } %>
+						<form id="cancel-button" action="/home/<%= requests[i].id %>?_method=DELETE" method="POST">
+							<button>CANCEL</button>
+						</form>
+					</li>
+				</div>
+			<% } %>
+		</ul>
+	</div>
+	<%include ./partials/footer.ejs %>
+</body>
+</html>

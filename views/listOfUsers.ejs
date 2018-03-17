@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <%include ./partials/head.ejs %>
+</head>
+<body>
+  <main>
+    <h2>List of Users</h2>
+    <ul>
+      <% for(let i =0; i < users.length; i++){ %>
+        <li>
+          <a href="/<%= users[i]._id%>"><%= users[i].fullname %></a>
+
+        </li>
+      <%}%>
+    </ul>
+  </main>
+
+</body>
+</html>
+

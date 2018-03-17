@@ -1,0 +1,60 @@
+<!--  Future: add search by state, city  -->
+<html>
+	<head>
+		<title>Search Page</title>
+		<%include ./partials/head.ejs %>
+	</head>
+		<!-- contains body tag -->
+		<%include ./partials/header.ejs %>
+
+
+	<main class="main">
+		<div class="expandableContainer">
+		<h1>PROPERTY SEARCH</h1>
+		<form class="form" action="/home" method="POST">
+			<div class="sliderContainer">
+				<h2>Bedrooms</h2>
+				<div id="bedroomSlider"></div>
+				<div id="minBed" class="min">Min:</div> 
+				<input type="hidden" id="hiddenMinBed" name="hiddenMinBed" value="1">
+				<div id="maxBed" class="max">Max:</div>
+				<input type="hidden" id="hiddenMaxBed" name="hiddenMaxBed" value="6">
+			</div>
+			<div class="sliderContainer">
+				<h2>Bathrooms</h2>
+				<div id="bathroomSlider"></div>
+				<div id="minBath" class="min">Min:</div> 
+				<input type="hidden" id="hiddenMinBath" name="hiddenMinBath" value="1">
+				<div id="maxBath" class="max">Max:</div>
+				<input type="hidden" id="hiddenMaxBath" name="hiddenMaxBath" value="6">
+			</div>
+			<div class="sliderContainer">
+				<h2>Square Feet</h2>
+				<div id="sqftSlider"></div>
+				<div id="minSqft" class="min">Min:</div> 
+				<input type="hidden" id="hiddenMinSqft" name="hiddenMinSqft" value="1">
+				<div id="maxSqft" class="max">Max:</div>
+				<input type="hidden" id="hiddenMaxSqft" name="hiddenMaxSqft" value="6">
+			</div>
+			
+			<h2>neighborhood</h2>	
+			<select class="select-field" name="chicagoNeighborhood">
+			<% const neighborhoods = []
+			for ( i = 0; i < houses.length; i++) { 
+				if (neighborhoods.indexOf(houses[i].neighborhood) === -1 ){
+					neighborhoods.push(houses[i].neighborhood) %>
+					<option value="<%= houses[i].neighborhood%>"><%= houses[i].neighborhood %></option> 
+					<% 
+				}
+			} 
+			%>
+			</select>
+		<div class="buttonContainer">
+			<button id="register-button">Search</button><br>
+		</div>
+		</form>
+
+	</main>
+	</div>
+	<%include ./partials/footer.ejs %>
+</html>
